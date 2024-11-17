@@ -9,9 +9,10 @@ const Layout = () => {
             screenOptions={({ route }) => ({
                 tabBarIcon: ({ focused, color, size }) => {
                     let iconName;
+                    console.log(route.name)
 
                     switch (route.name) {
-                        case 'index':
+                        case '(home)':
                             iconName = focused ? 'home' : 'home-outline';
                             break;
                         case 'chat':
@@ -35,7 +36,7 @@ const Layout = () => {
             })}
         >
             <Tabs.Screen
-                name="index"
+                name="(home)"
                 options={{
                     headerShown: false,
                     title: 'Home'

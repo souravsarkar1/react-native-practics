@@ -5,10 +5,10 @@ import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons'
 
 const Index = () => {
     const astrologers = [
-        { id: 1, name: 'Astrologer 1', image: require('../../assets/images/home/astrologer.png'), status: 'Online' },
-        { id: 2, name: 'Astrologer 2', image: require('../../assets/images/home/astrologer.png'), status: 'Online' },
-        { id: 3, name: 'Astrologer 3', image: require('../../assets/images/home/astrologer.png'), status: 'Busy' },
-        { id: 4, name: 'Astrologer 4', image: require('../../assets/images/home/astrologer.png'), status: 'Online' },
+        { id: 1, name: 'Astrologer 1', image: require('../../../assets/images/home/astrologer.png'), status: 'Online' },
+        { id: 2, name: 'Astrologer 2', image: require('../../../assets/images/home/astrologer.png'), status: 'Online' },
+        { id: 3, name: 'Astrologer 3', image: require('../../../assets/images/home/astrologer.png'), status: 'Busy' },
+        { id: 4, name: 'Astrologer 4', image: require('../../../assets/images/home/astrologer.png'), status: 'Online' },
     ]
 
     const features = [
@@ -106,12 +106,12 @@ const Index = () => {
                     <Text style={styles.sectionTitle}>CUSTOMER REVIEWS</Text>
                     <View style={styles.reviewsContainer}>
                         <View style={styles.reviewCard}>
-                            <Image source={require('../../assets/images/home/user1.png')} style={styles.reviewerImage} />
+                            <Image source={require('../../../assets/images/home/user1.png')} style={styles.reviewerImage} />
                             <Text style={styles.reviewerName}>John Doe</Text>
                             <Text style={styles.reviewText}>Amazing experience! The astrologer was very accurate.</Text>
                         </View>
                         <View style={styles.reviewCard}>
-                            <Image source={require('../../assets/images/home/user1.png')} style={styles.reviewerImage} />
+                            <Image source={require('../../../assets/images/home/user1.png')} style={styles.reviewerImage} />
                             <Text style={styles.reviewerName}>Jane Smith</Text>
                             <Text style={styles.reviewText}>Very helpful and insightful reading. Highly recommend!</Text>
                         </View>
