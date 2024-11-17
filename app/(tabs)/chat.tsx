@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 
-const Index = () => {
+const Chat = () => {
     return (
         <View>
-            <Text>Index</Text>
+            <Text>Chat</Text>
         </View>
     )
 }
 
-export default Index
+export default Chat

@@ -1,45 +1,76 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-import { Platform } from 'react-native';
+import { View, Text } from 'react-native'
+import React from 'react'
+import { Tabs } from 'expo-router'
+import { Ionicons } from '@expo/vector-icons'
 
-import { HapticTab } from '@/components/HapticTab';
-import { IconSymbol } from '@/components/ui/IconSymbol';
-import TabBarBackground from '@/components/ui/TabBarBackground';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
+const Layout = () => {
+    return (
+        <Tabs
+            screenOptions={({ route }) => ({
+                tabBarIcon: ({ focused, color, size }) => {
+                    let iconName;
 
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
+                    switch (route.name) {
+                        case 'index':
+                            iconName = focused ? 'home' : 'home-outline';
+                            break;
+                        case 'chat':
+                            iconName = focused ? 'chatbox' : 'chatbox-outline';
+                            break;
+                        case 'call':
+                            iconName = focused ? 'call' : 'call-outline';
+                            break;
+                        case 'history':
+                            iconName = focused ? 'time' : 'time-outline';
+                            break;
+                        case 'profile':
+                            iconName = focused ? 'person' : 'person-outline';
+                            break;
+                    }
 
-  return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarBackground: TabBarBackground,
-        tabBarStyle: Platform.select({
-          ios: {
-            // Use a transparent background on iOS to show the blur effect
-            position: 'absolute',
-          },
-          default: {},
-        }),
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-    </Tabs>
-  );
+                    return <Ionicons name={iconName} size={size} color={color} />;
+                },
+                tabBarActiveTintColor: '#2196F3',
+                tabBarInactiveTintColor: 'gray',
+            })}
+        >
+            <Tabs.Screen
+                name="index"
+                options={{
+                    headerShown: false,
+                    title: 'Home'
+                }}
+            />
+            <Tabs.Screen
+                name='chat'
+                options={{
+                    headerShown: false,
+                    title: 'Chat'
+                }}
+            />
+            <Tabs.Screen
+                name='call'
+                options={{
+                    headerShown: false,
+                    title: 'Call'
+                }}
+            />
+            <Tabs.Screen
+                name='history'
+                options={{
+                    headerShown: false,
+                    title: 'History'
+                }}
+            />
+            <Tabs.Screen
+                name='profile'
+                options={{
+                    headerShown: false,
+                    title: 'Profile'
+                }}
+            />
+        </Tabs>
+    )
 }
+
+export default Layout
